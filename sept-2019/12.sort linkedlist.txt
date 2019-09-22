@@ -1,0 +1,161 @@
+#include<stdio.h>
+
+
+#include<stdlib.h>
+
+
+struct Node
+
+
+{
+
+
+    int data;
+
+
+    struct Node *next;
+
+
+};
+
+
+struct Node * addNode(struct Node *h)
+
+
+{
+
+
+    struct Node *newnode=(struct Node *)malloc(sizeof(struct Node));
+
+
+    scanf("%d",&newnode->data);
+
+    newnode->next=NULL;
+
+
+    h->next=newnode;
+
+
+    return newnode;
+
+
+}
+
+
+void display(struct Node *h)
+
+
+{
+
+
+    while(h!=NULL)
+
+
+    {
+
+
+        printf("%d ",h->data);
+
+
+        h=h->next;
+
+
+    }
+
+
+    printf("\n");
+
+
+}
+
+void sort(struct Node *h)
+
+{
+
+    struct Node *h1;
+
+    int temp;
+
+    h1=h->next;
+
+    while(h!=NULL)
+
+    {
+
+        while(h1!=NULL)
+
+        {
+
+            if(h->data>h1->data)
+
+            {
+
+                temp=h->data;
+
+                h->data=h1->data;
+
+                h1->data=temp;
+
+            }
+
+            h1=h1->next;
+
+         }
+
+        h1=h->next;
+
+        h=h->next;
+
+    }
+
+}
+
+
+int main()
+
+
+{
+
+
+    int size;
+
+
+    scanf("%d",&size);
+
+
+    struct Node *head=(struct Node*)malloc(sizeof(struct Node));
+
+
+    struct Node *temp=head;
+
+
+    scanf("%d",&head->data);
+
+
+    head->next=NULL;
+
+
+    size--;
+
+
+    while(size>0)
+
+
+    {
+
+
+        temp=addNode(temp);
+
+
+        size--;
+
+
+    }
+
+    display(head);
+
+    sort(head);
+
+    display(head);
+
+}
