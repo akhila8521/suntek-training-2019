@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+
+int main()
+
+{
+
+    int n,i,j,a[10],s;
+
+    scanf("%d",&n);
+
+    for(i=1;i<=n;i++)
+
+    a[i]=2;
+
+    for(i=1;i<=n;i++)
+
+    {
+
+        printf("%d  ",i);
+
+        s=i;
+
+        for(j=1;j<i;j++)
+
+        {
+
+            if(j%2==1)
+
+            {
+
+            s=s+((n-(i-1))*2)-1;
+
+            printf("%d  ",s);
+
+            }
+
+            else
+
+            {
+
+                s=s+a[j];
+
+                printf("%d  ",s);
+
+                a[j]=a[j]+2;
+
+            }
+
+        }
+
+        printf("\n");
+
+    }
+
+    return 0;
+
+}
