@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+int n,a[50],b[100],c[50],i,j,k,p;
+scanf("%d",&n);
+for(i=0;i<n;i++)
+scanf("%d"<&a[i]);
+for(i=0;i<n;i++)
+{
+j=0;
+while(a[i]>0)
+{
+b[j]=a[i]%2;
+a[i]=a[i]/2;
+}
+c[i]=0;
+
+for(k=j-1,p=0;k>=0;k--,p++)
+c[i]=c[i]+b[k]*pow(2,p);
+}
+for(i=0;i<n;i++)
+printf("%d ",c[i]);
+return 0;
+}

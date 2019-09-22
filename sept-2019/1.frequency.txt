@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+
+int main()
+
+{
+
+    char a[20];
+
+    int i,j,k,count;
+
+    gets(a);
+
+    for(i=0;a[i]!='\0';i++)
+
+    {
+
+        count=1;
+
+        for(j=i+1;a[j]!='\0';j++)
+
+        {
+
+            if(a[i]==a[j])
+
+            {
+
+            count++;
+
+            for(k=j;a[k]!='\0';k++)
+
+            a[k]=a[k+1];
+
+            j--;
+
+            }
+
+        }
+
+        printf("frequency of %c is %d \n",a[i],count);
+
+    }
+
+
+
+    return 0;
+
+}

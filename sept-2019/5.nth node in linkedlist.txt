@@ -1,0 +1,118 @@
+#include<stdio.h>
+
+#include<stdlib.h>
+
+struct Node
+
+{
+
+    int data;
+
+    struct Node *next;
+
+};
+
+struct Node * addNode(struct Node *h)
+
+{
+
+    struct Node *newnode=(struct Node *)malloc(sizeof(struct Node));
+
+    scanf("%d",&newnode->data);
+
+    newnode->next=NULL;
+
+    h->next=newnode;
+
+    return newnode;
+
+}
+
+void display(struct Node *h)
+
+{
+
+    while(h!=NULL)
+
+    {
+
+        printf("%d ",h->data);
+
+        h=h->next;
+
+    }
+
+    printf("\n");
+
+}
+
+void findElement(struct Node *h,int n,int n1)
+
+{
+
+    while(h!=NULL)
+
+    {
+
+    if(n==n1)
+
+    {
+
+    printf("%d",h->data);
+
+    break;
+
+    }
+
+    else
+
+    {
+
+        h=h->next;
+
+        n++;
+
+    }
+
+    }
+
+}
+
+int main()
+
+{
+
+    int size,n,n1;
+
+    scanf("%d%d",&n,&size);
+
+    n1=size;
+
+    struct Node *head=(struct Node*)malloc(sizeof(struct Node));
+
+    struct Node *temp=head;
+
+    scanf("%d",&head->data);
+
+    head->next=NULL;
+
+    size--;
+
+    while(size>0)
+
+    {
+
+        temp=addNode(temp);
+
+        size--;
+
+    }
+
+    display(head);
+
+    findElement(head,n,n1);
+
+    return 0;
+
+}
+

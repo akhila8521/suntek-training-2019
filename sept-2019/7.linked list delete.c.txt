@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node
+{
+	int data;
+	struct Node * next;
+};
+
+
+struct Node * addNode(struct Node * h)
+{
+	
+	
+	struct Node * newnode = (struct Node *)malloc(sizeof(struct Node));
+	newnode->next = NULL;
+	scanf("%d",&newnode->data);
+	
+	h->next = newnode;
+	
+	return newnode;
+	
+}
+
+void display(struct Node * head)
+{
+	while(head!=NULL)
+	{
+		printf("%d ",head->data);
+		head = head ->next;
+	}
+	
+}
+struct Node * deleteConsequentDuplicates(struct Node * head)
+{
+struct Node* ptr=head;
+while(ptr->next!=NULL)
+{
+if(ptr->data==ptr->next->data)
+ptr->next=ptr->next->next;
+else
+ptr=ptr->next;
+}
+return head;
+}
+
+void main()
+{
+	struct Node * head;
+	struct Node * tail;
+	int size;
+	scanf("%d",&size);
+	if(size>0)
+	{
+	 head = (struct Node *)malloc(sizeof(struct Node));
+	 tail = head;
+	 printf("Enter %d values:",size);
+	 
+	 head->next = NULL;
+	 scanf("%d",&head->data);
+	 
+	 size--;
+	 
+	while(size>0)
+	 {
+	 	tail = addNode(tail);
+	 	size--;
+	 }
+
+	 head = deleteConsequentDuplicates(head);
+	 display(head);
+    }
+    else
+    {
+    	printf(" please enter a valid size !!!");
+    }
+	
+    
+	
+}

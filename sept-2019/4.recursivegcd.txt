@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+void findgcd(int g,int l)
+
+ {
+
+     int r;
+
+   r=g%l;
+
+   if(r!=0)
+
+   findgcd(l,r);
+
+   else
+
+   printf("%d",l);
+
+ }
+
+int main()
+
+{
+
+    int a,b,g,l;
+
+    scanf("%d%d",&a,&b);
+
+    if(a>b)
+
+    g=a,l=b;
+
+    else
+
+    g=b,l=a;
+
+   findgcd(g,l);
+
+
+}
+ 

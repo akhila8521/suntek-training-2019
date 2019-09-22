@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+
+int main()
+
+{
+
+    int n,i=0,j,k,b[20],count=0;
+
+    scanf("%d",&n);
+
+    while(n>0)
+
+    {
+
+        b[i]=n%2;
+
+        n=n/2;
+
+        i++;
+
+    }
+
+    for(k=0,j=i-1;k<i/2;k++,j--)
+
+    {
+
+        if(b[k]==b[j])
+
+        count++;
+
+
+    }
+
+    if(count==i/2)
+
+    printf("binary palindrome");
+
+    else
+
+    printf("Not a binary palindrome");
+
+
+    return 0;
+
+}
